@@ -27,11 +27,10 @@ const List = styled.div`
     gap: 2rem;
     margin: 2rem 0;
 `
-const SLink = styled(NavLink)`
-    &.active {
-        a {
-            color: rgb(0, 120, 195);
-        }
+const SLink = styled(NavLink)` 
+    text-decoration: none;
+    .active {
+        color: #D6D5C9;
     }
 `
 

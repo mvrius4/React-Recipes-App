@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
+import { Link } from 'react-router-dom';
 
 function Popular() {
     const [popular, setPopular] = useState([]);
@@ -42,9 +43,10 @@ function Popular() {
                     return (
                         <SplideSlide key={recipe.id}>
                             <Card>
-                                <p>{recipe.title}</p>
-                                <img src={recipe.image} alt={recipe.title} />
-                                <Gradient />
+                                <Link to={"/recipe/" + recipe.id}>
+                                    <img src={recipe.image} alt={recipe.title} />
+                                    <h4>{recipe.title}</h4>
+                                </Link>
                             </Card>
                         </SplideSlide>
                     );
@@ -58,42 +60,20 @@ const Wrapper = styled.div`
     overflow: hidden;
 `;
 const Card = styled.div`
-    position: relative;
-    min-height: 25rem;
-    border-radius: 2rem;
-    overflow: hidden;
-    margin-top: 2rem;
-
+  margin-top: 2rem;
     img {
-        border-radius: 2rem;
-        position: absolute;
-        left: 0;
         width: 100%;
-        height: 100%;
+        min-height: 350px;
+        border-radius: 2rem;
         object-fit: cover;
     }
-
-    p {
-       position: absolute;
-       z-index: 10;
-       left: 50%;
-       bottom: 0%;
-       transform: translate(-50%, 0%);
-       width: 100%;
-       text-align: center;
-       font-weight: 500;
-       height: 40%;
-       display: flex;
-       justify-content: center;
-       align-items: center; 
+    a {
+        text-decoration: none;
     }
-`;
-const Gradient = styled.div`
-    position: absolute;
-    z-index: 3;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    h4 {
+        text-align: center;
+        padding: 1rem;
+    }
 `;
 
 export default Popular;

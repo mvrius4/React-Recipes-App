@@ -6,14 +6,16 @@
 
 body {
     margin: 0 10%;
-    background-color: rgb(48, 49, 67);
-    color: rgb(205, 205, 205);
+    background-color: #0A100D;
+    color: #D6D5C9;
+    font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
 }
+p { font-weight: 500; }
 a {
-    text-decoration: none;
-    color: rgb(205, 205, 205);
+    color: #D6D5C9;
 }
 a:hover, a:focus {
-    color: rgb(0, 120, 195);
+    color: #A22C29;
 }
+b { color: #B9BAA3; }

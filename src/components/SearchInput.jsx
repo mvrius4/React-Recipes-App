@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa'; 
+import { useNavigate } from 'react-router-dom';
 
 function SearchInput() {
-  return (
-    <FormStyle>
-        <FaSearch />
-        <input type="text" value=""></input>
-    </FormStyle>
-  )
+    const [input, setInput] = useState("");
+    const navigate = useNavigate();
+    const eventHandler = e => {
+        e.preventDefault();
+        navigate("/searched/" + input);
+    };
+
+    return (
+        <FormStyle onSubmit={eventHandler}>
+            <FaSearch />
+            <input type="text" onChange={e => setInput(e.target.value)} value={input}></input>
+        </FormStyle>
+      )
 }
 
 const FormStyle = styled.form`
@@ -21,9 +29,15 @@ const FormStyle = styled.form`
     input {
         width: 30%;
         background: transparent;
-        border: 3px solid rgb(205, 205, 205);
+        outline: none;
+        border: 3px solid #D6D5C9;
         border-radius: 1rem;
         padding: .5rem;
+        color: #D6D5C9;
+        font-weight: 700;
+        &:focus {
+            border: 3px solid #A22C29;
+        }
     }
 `
 
